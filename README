@@ -1,0 +1,62 @@
+Simple AJAX/jQuery based image browser to use with the TinyMCE extension for Symphony CMS.
+
+Version: 0.5 (2011-07-27)
+
+
+------------
+Requirements
+------------
+
+Server-side: working Symphony 2.2.x installation with TinyMCE extension.
+
+User-side: modern, preferably non-MS web browser with JS enabled and a Flash 10.x plugin.
+
+(see Notes below)
+
+
+--------------
+How to install
+--------------
+
+(1) Put the files somewhere inside the Symphony installation directory.
+
+(2) Rename "config-dist.inc.php" file to "config.inc.php" end edit it according to your setup.
+
+(3) Inside the TinyMCE extension directory find a file called "richtext_tinymce.publish.js" and modify it adding "file_browser_callback" setting to the TinyMCE configuration. It should point to a function like the one below:
+
+function __showFileBrowser(fieldName, url, type, win)
+{
+	if(type == 'image)
+	{
+		tinyMCE.activeEditor.windowManager.open({
+		  title : 'Image Browser',
+		  file : '/url/or/path/to/imagebrowser.php',
+		  width : 600,
+		  height : 600,
+		  scrollbars : false,
+		  resizable : true,
+		  inline : true
+		  }, { 
+		  window : win, 
+		  input : fieldName 
+		  });
+	}
+	
+	return false;
+}
+
+You would probably also like to append the "relative_urls : false" setting to the TinyMCE configuration in order to prevent the conversion of image URLs into the "../../.." form.
+
+More info: http://tinymce.moxiecode.com/wiki.php/Configuration:file_browser_callback, http://tinymce.moxiecode.com/wiki.php/Configuration:relative_urls.
+
+(4) Image browser can now be accessed by calling the "Insert/edit image" dialog from the toolbar and clicking the icon next to the URL field.
+
+
+-----
+Notes
+-----
+
+May not work properly on all browsers. Should work properly on Opera 11.x, Firefox 3.x and Chrome.
+
+There's a good chance it will work with earlier versions of Symphony (not tested).
+

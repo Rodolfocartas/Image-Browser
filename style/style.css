@@ -1,0 +1,169 @@
+body
+{
+	margin: 0;
+	padding: 7px;
+	font-size: 12px;
+	font-family: "Verdana", sans-serif;
+	background-color: #eee;
+}
+
+.clear { clear: both }
+
+#ib-path, #ib-filelist, #ib-imageinfo
+{
+	background-color: white;
+	padding: 7px;
+	border: 1px solid #ccc;
+	margin-bottom: 7px;
+}
+
+#ib-path { padding: 0 7px; height: 32px; line-height: 32px; overflow: hidden; }
+#ib-path.ib-narrow { margin-right: 34px; }
+#ib-busy 
+{ 
+	width: 34px;
+	height: 34px;
+	display: none; 
+	float: right; 
+	background: url('ajax-loader.gif') center center no-repeat; 
+}
+
+.ib-pathelement
+{
+	cursor: pointer;
+	padding: 0 2px;
+	margin: 0 3px;
+}
+
+.ib-icon { padding: 1px 8px 1px 8px; }
+.ib-homedir { margin-left: 0; background: url('go-home.png') center center no-repeat; }
+span.ib-pathelement:hover { background-color: #eef }
+
+#ib-filelist
+{
+	height: 500px;
+	min-height: 500px;
+	overflow: scroll;
+	overflow-x: hidden;
+	margin-right: 157px;
+}
+
+.ib-item 
+{ 
+	line-height: 18px;
+	height: 18px;
+	margin: 2px 0;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.ib-dir, .ib-parentdir { font-weight: bold; color: #333 }
+div.ib-item:hover { background-color: #eef }
+
+#ib-filelist .ib-icon { margin-right: 7px }
+.ib-dir .ib-icon { background: url('folder.png') left center no-repeat; }
+.ib-imagefile .ib-icon { background: url('image-x-generic.png') left top no-repeat; }
+.ib-parentdir .ib-icon { background: url('go-up.png') left top no-repeat; }
+#ib-filelist .ib-selected { background-color: #fea }
+
+.ib-button
+{
+	background-color: #888;
+	color: white;
+	font-size: 11px;
+	padding: 3px 7px;
+	text-align: center;
+	cursor: default;
+}
+
+div.ib-button:hover { background-color: #67a }
+
+
+#ib-dirbuttons .ib-button { float: left; margin-right: 7px }
+#ib-imagebuttons .ib-button { margin-bottom: 7px }
+
+#ib-imagepane { position: relative; float: right; width: 150px }
+
+#ib-imageinfo 
+{ 
+	text-align: center;
+	font-size: 11px;
+}
+
+#ib-imageinfo p { margin: 0.33em 0 0 0; }
+#ib-imageinfo img { cursor: pointer }
+
+/* dialogs */
+#ib-dialogs
+{
+	position: absolute;
+	width: 5000px;
+	height: 5000px;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	background: url('overlay.png') left top repeat;
+}
+
+#ib-dialogs .ib-dialog
+{
+	position: absolute;
+	background-color: #eee;
+	border: 5px solid #444;
+	padding: 7px;
+	z-index: 1001;
+	top: 0;
+}
+
+#ib-dialogs .ib-dialog .ib-title
+{
+	font-size: 11px;
+	text-align: center;
+	background-color: #444;
+	color: white;
+	padding: 0.25em;
+	font-weight: bold;
+	margin: -12px -7px 7px -7px;
+}
+
+#ib-dialogs .ib-dialogbuttons .ib-button
+{ 
+	float: right;
+	margin-left: 0.5em;
+}
+
+#ib-dialogs .ib-dialogbuttons { padding-top: 12px; clear: both }
+
+/* upload UI */
+
+#ib-cancelupload
+{
+	height: 16px;
+	width: 16px;
+	background: url('process-stop.png') center center no-repeat;
+	float: right;
+	cursor: pointer;
+	display: none;
+}
+
+#ib-uploadstatus
+{
+	height: 32px;
+	line-height: 32px;
+	overflow: hidden;
+}
+
+#ib-uploadprogressbar
+{
+	height: 16px;
+	background-color: #67a;
+	width: 0px;
+	float: left;
+}
+
+/* patches */
+@media screen and (-webkit-min-device-pixel-ratio:0)
+{
+	#ib-path.ib-narrow { margin-right: 2px; }
+	#ib-filelist { margin-right: 7px; }
+}
